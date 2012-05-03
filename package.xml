@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>dcSamlPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>SSO authentication and authorization for symfony based in Saml http://saml.xml.org/"</summary> 
+<description>
+  SSO provided by Saml allow developers to concentrate in business logic 
+  delegating all authentication and authorization work to Saml Identity 
+  Manager.
+
+  The plugin installation is as simply as described here.
+
+  An other additional feature is that once a user is authenticated 
+  in one of the applications using Saml, you will be automatically 
+  authenticated in the others applications
+</description>
+ <lead>
+  <name>Matías E. Brown</name>
+  <user>mbrown</user>
+  <email>matibrown@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-04-09</date>
+ <time>12:00:00</time>
+ <version>
+  <release>0.0.9</release>
+  <api>1.4.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
+ <notes>-</notes>
+ <contents>
+  <dir name="/">
+   <file role="data" name="README" />
+   <file role="data" name="LICENSE" />
+   <file role="data" name="README.php-saml" />
+   <file role="data" name="LICENSE.php-saml" />
+   <dir name="lib">
+    <dir name="filter">
+     <!-- subclass of sfBasicSecurityFilter -->
+     <file role="data" name="dcSamlSecurityFilter.class.php" />
+    </dir>
+    <dir name="saml">
+      <!-- subclass of SamlResponse -->
+      <file role="data" name="CustomSamlResponse.class.php" />
+      <file role="data" name="SamlAgent.class.php" />
+      <file role="data" name="SamlPermission.class.php" />
+      <file role="data" name="SamlUser.class.php" />
+    </dir>
+    <dir name="user">
+     <!-- subclass of sfBasicSecurityUser -->
+     <file role="data" name="dcSamlSecurityUser.class.php" />
+    </dir>
+    <dir name="vendor">
+     <dir name="php-saml">
+      <dir name="onelogin">
+        <dir name="saml">
+          <file role="data" name="authrequest.php" />
+          <file role="data" name="response.php" />
+          <file role="data" name="settings.php" />
+          <file role="data" name="xmlsec.php" />
+        </dir>
+        <file role="data" name="saml.php" />
+      </dir>
+      <dir name="xmlseclibs">
+        <file role="data" name="CHANGELOG.txt" />
+        <file role="data" name="xmlseclibs.php" />
+      </dir>
+     </dir>
+    </dir>
+   </dir>
+   <dir name="modules">
+    <dir name="dcSamlAuth">
+     <dir name="actions">
+      <file role="data" name="actions.class.php" />
+     </dir>
+     <dir name="lib">
+      <file role="data" name="BasedcSamlAuthActions.class.php" />
+     </dir>
+    </dir>
+   </dir>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.4.0</max>
+    <exclude>1.0.0</exclude>
+    <exclude>1.1.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+    <version>
+      <release>0.0.9</release>
+      <api>1.4.0</api>
+    </version>
+    <stability>
+     <release>beta</release>
+     <api>beta</api>
+    </stability>
+    <license uri="http://www.symfony-project.org/license">MIT license</license>
+    <date>2012-04-09</date>
+    <license>MIT</license>
+    <notes>
+      * First version
+    </notes>
+  </release>
+ </changelog>
+</package>
