@@ -24,6 +24,8 @@
     private $nameid;
     private $xpath;
 
+    const XML_DIR = "/tmp/saml.xml";
+
     /**
      * Construct the response object.
      *
@@ -38,6 +40,7 @@
       $this->assertion = base64_decode($assertion);
       $this->xml = new DOMDocument();
       $this->xml->loadXML($this->assertion);
+      $this->xml->save(self::XML_DIR);
     }
 
     /**

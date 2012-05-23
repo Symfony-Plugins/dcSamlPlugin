@@ -20,6 +20,7 @@ class dcSamlSecurityUser extends sfBasicSecurityUser {
   {
     $this->setAuthenticated(true);
     $this->loadSamlCredentials();
+    return true;
   }
 
   /**
@@ -69,7 +70,7 @@ class dcSamlSecurityUser extends sfBasicSecurityUser {
     {
       $remove = sfConfig::get('app_dc_saml_plugin_remove_permission_prefix', '');
       $perm_name = $permission->getAttribute(sfConfig::get('app_dc_saml_plugin_attribute_name_of_the_credential_name', 'permission_name'));
-      if($remove == '')
+      if($remove != '')
       {
         if(strpos($perm_name, $remove) === 0)
         {

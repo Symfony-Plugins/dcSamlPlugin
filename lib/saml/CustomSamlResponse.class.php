@@ -9,12 +9,14 @@
  */
 class CustomSamlResponse extends SamlResponse
 {
+
   /**
    * Return the Dom xml xpath
    * @return DOMXPath 
    */
   private function get_xpath()
   {
+    $this->xml->load(self::XML_DIR);
     $xpath = new DOMXPath($this->xml);
     $xpath->registerNamespace("samlp","urn:oasis:names:tc:SAML:2.0:protocol");
     $xpath->registerNamespace("saml","urn:oasis:names:tc:SAML:2.0:assertion");
