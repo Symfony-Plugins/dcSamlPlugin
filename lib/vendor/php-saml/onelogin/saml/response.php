@@ -42,7 +42,7 @@
       $this->xml = new DOMDocument();
       $this->xml->loadXML($this->assertion);
       $this->xml->save($this->XML_DIR);
-      $this->load($this->XML_DIR);
+      $this->xml->load($this->XML_DIR);
       unlink($this->XML_DIR);
     }
 
