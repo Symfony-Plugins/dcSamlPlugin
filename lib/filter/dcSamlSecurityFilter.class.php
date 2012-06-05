@@ -35,7 +35,6 @@ class dcSamlSecurityFilter extends sfBasicSecurityFilter
         // Then we need to relogin on Saml Server
         $this->forwardToLoginAction();
       }
-
     }
     parent::execute($filterChain);
   }

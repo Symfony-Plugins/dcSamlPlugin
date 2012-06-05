@@ -24,8 +24,6 @@
     private $nameid;
     private $xpath;
 
-    protected $XML_DIR;
-
     /**
      * Construct the response object.
      *
@@ -36,14 +34,11 @@
      *   A UUEncoded SAML assertion from the IdP.
      */
     function __construct($settings, $assertion) {
-      $this->XML_DIR = tempnam('/tmp', 'saml');
+
       $this->settings = $settings;
       $this->assertion = base64_decode($assertion);
       $this->xml = new DOMDocument();
       $this->xml->loadXML($this->assertion);
-      $this->xml->save($this->XML_DIR);
-      $this->xml->load($this->XML_DIR);
-      unlink($this->XML_DIR);
     }
 
     /**

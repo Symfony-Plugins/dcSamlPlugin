@@ -10,17 +10,27 @@
 class CustomSamlResponse extends SamlResponse
 {
 
+
   /**
    * Return the Dom xml xpath
    * @return DOMXPath 
    */
   private function get_xpath()
   {
+    $this->hackXML();
     $xpath = new DOMXPath($this->xml);
     $xpath->registerNamespace("samlp","urn:oasis:names:tc:SAML:2.0:protocol");
     $xpath->registerNamespace("saml","urn:oasis:names:tc:SAML:2.0:assertion");
     $xpath->registerNamespace("ds", "http://www.w3.org/2000/09/xmldsig#");
     return $xpath;
+  }
+
+  private function hackXML()
+  {
+    $tmp_dir = tempnam('/tmp', 'saml');
+    $this->xml->loadXML($this->assertion);
+    $this->xml->save($tmp_dir);
+    $this->xml->load($tmp_dir); 
   }
 
   /**
